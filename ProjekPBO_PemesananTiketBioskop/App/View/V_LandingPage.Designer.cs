@@ -1,6 +1,6 @@
 ﻿namespace ProjekPBO_PemesananTiketBioskop
 {
-    partial class Form1
+    partial class V_LandingPage
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_LandingPage));
             SuspendLayout();
             // 
-            // Form1
+            // V_LandingPage
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "V_LandingPage";
             Load += Form1_Load;
             ResumeLayout(false);
         }

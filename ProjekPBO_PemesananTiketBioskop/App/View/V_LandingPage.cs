@@ -1,8 +1,8 @@
 namespace ProjekPBO_PemesananTiketBioskop
 {
-    public partial class Form1 : Form
+    public partial class V_LandingPage : Form
     {
-        public Form1()
+        public V_LandingPage()
         {
             InitializeComponent();
         }
