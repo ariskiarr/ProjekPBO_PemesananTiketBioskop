@@ -16,5 +16,12 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
         {
             InitializeComponent();
         }
+
+        private void btLoginHalRegister_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            V_Login HalLogin = new V_Login();
+            HalLogin.Show();
+        }
     }
 }
