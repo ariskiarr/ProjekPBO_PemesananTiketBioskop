@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.Model
 {
-    internal class M_Admin
+    internal class M_Akun
     {
     }
 }
