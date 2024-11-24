@@ -1,14 +1,14 @@
-﻿namespace ProjekPBO_PemesananTiketBioskop
+﻿namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
-    partial class V_LandingPage
+    partial class V_Register
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,20 +23,23 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_LandingPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_Register));
             SuspendLayout();
             // 
-            // V_LandingPage
+            // V_Register
             // 
-            resources.ApplyResources(this, "$this");
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "V_LandingPage";
-            Load += Form1_Load;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1898, 1024);
+            Name = "V_Register";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "V_Register";
             ResumeLayout(false);
         }
 
