@@ -14,6 +14,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new V_Login());
+            //Application.Run(new V_HalAdmin());
         }
     }
 }

@@ -105,6 +105,7 @@
             btRegister.Size = new Size(454, 65);
             btRegister.TabIndex = 5;
             btRegister.UseVisualStyleBackColor = false;
+            btRegister.Click += btRegister_Click;
             // 
             // V_Register
             // 

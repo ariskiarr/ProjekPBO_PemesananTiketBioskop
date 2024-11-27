@@ -74,6 +74,16 @@ namespace core
                 throw new Exception(e.Message);
             }
         }
+        public static NpgsqlDataReader ExecuteReaderCommand(string query, NpgsqlParameter[] parameters = null)
+        {
+            openConnection();
+            command.CommandText = query;
+            if (parameters != null)
+                command.Parameters.AddRange(parameters);
+
+            // Eksekusi dan return reader tanpa menutup koneksi
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
+        }
 
     }
 }

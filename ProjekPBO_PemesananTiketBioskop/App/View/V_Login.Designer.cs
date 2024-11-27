@@ -49,6 +49,7 @@
             btLogin.Size = new Size(455, 66);
             btLogin.TabIndex = 2;
             btLogin.UseVisualStyleBackColor = false;
+            btLogin.Click += btLogin_Click;
             // 
             // tbEmailUsernameLogin
             // 
@@ -92,7 +93,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = SystemColors.Control;
+            BackColor = SystemColors.Window;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1898, 1064);
             Controls.Add(btRegisterHalLogin);
