@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_tambahFilm));
-            pictureBox1 = new PictureBox();
+            pbGambarFilm = new PictureBox();
             tbTambahJudul = new TextBox();
             tbTambahGenre = new TextBox();
             tbTambahSutradara = new TextBox();
@@ -46,18 +46,22 @@
             cbTambahStatus = new ComboBox();
             cbTambahRuangan = new ComboBox();
             btSimpanTambahFilm = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            cbWaktuTayang = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)pbGambarFilm).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbGambarFilm
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.imgapp;
-            pictureBox1.Location = new Point(182, 209);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(364, 498);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbGambarFilm.BackColor = Color.Transparent;
+            pbGambarFilm.BackgroundImage = (Image)resources.GetObject("pbGambarFilm.BackgroundImage");
+            pbGambarFilm.ErrorImage = null;
+            pbGambarFilm.InitialImage = null;
+            pbGambarFilm.Location = new Point(198, 208);
+            pbGambarFilm.Name = "pbGambarFilm";
+            pbGambarFilm.Size = new Size(288, 426);
+            pbGambarFilm.TabIndex = 0;
+            pbGambarFilm.TabStop = false;
+            pbGambarFilm.Click += pbGambarFilm_Click;
             // 
             // tbTambahJudul
             // 
@@ -122,15 +126,17 @@
             btTambahSinopsis.Size = new Size(73, 68);
             btTambahSinopsis.TabIndex = 7;
             btTambahSinopsis.UseVisualStyleBackColor = false;
+            btTambahSinopsis.Click += btTambahSinopsis_Click;
             // 
             // dtTambahTanggalTayang
             // 
             dtTambahTanggalTayang.Font = new Font("Segoe UI", 12F);
-            dtTambahTanggalTayang.Format = DateTimePickerFormat.Short;
+            dtTambahTanggalTayang.Format = DateTimePickerFormat.Custom;
             dtTambahTanggalTayang.Location = new Point(1137, 342);
             dtTambahTanggalTayang.Name = "dtTambahTanggalTayang";
             dtTambahTanggalTayang.Size = new Size(429, 39);
             dtTambahTanggalTayang.TabIndex = 8;
+            dtTambahTanggalTayang.Value = new DateTime(2024, 11, 15, 0, 0, 0, 0);
             // 
             // tbTambahDurasi
             // 
@@ -182,14 +188,28 @@
             btSimpanTambahFilm.Name = "btSimpanTambahFilm";
             btSimpanTambahFilm.Size = new Size(451, 59);
             btSimpanTambahFilm.TabIndex = 14;
+            btSimpanTambahFilm.Text = " ";
             btSimpanTambahFilm.UseVisualStyleBackColor = false;
+            btSimpanTambahFilm.Click += btSimpanTambahFilm_Click;
+            // 
+            // cbWaktuTayang
+            // 
+            cbWaktuTayang.FlatStyle = FlatStyle.Flat;
+            cbWaktuTayang.Font = new Font("Segoe UI", 12F);
+            cbWaktuTayang.FormattingEnabled = true;
+            cbWaktuTayang.Items.AddRange(new object[] { "09:00:00", "11:00:00", "13:00:00", "15:00:00", "17:00:00", "19:00:00", "22:00:00" });
+            cbWaktuTayang.Location = new Point(1137, 221);
+            cbWaktuTayang.Name = "cbWaktuTayang";
+            cbWaktuTayang.Size = new Size(429, 40);
+            cbWaktuTayang.TabIndex = 15;
             // 
             // V_tambahFilm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.Transparent;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(cbWaktuTayang);
             Controls.Add(btSimpanTambahFilm);
             Controls.Add(cbTambahRuangan);
             Controls.Add(cbTambahStatus);
@@ -203,18 +223,18 @@
             Controls.Add(tbTambahSutradara);
             Controls.Add(tbTambahGenre);
             Controls.Add(tbTambahJudul);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbGambarFilm);
             Name = "V_tambahFilm";
             Size = new Size(1618, 1079);
             Load += V_tambahFilm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbGambarFilm).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox pbGambarFilm;
         private TextBox tbTambahJudul;
         private TextBox tbTambahGenre;
         private TextBox tbTambahSutradara;
@@ -230,5 +250,6 @@
         private ComboBox cbTambahStatus;
         private ComboBox cbTambahRuangan;
         private Button btSimpanTambahFilm;
+        private ComboBox cbWaktuTayang;
     }
 }

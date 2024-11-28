@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjekPBO_PemesananTiketBioskop.App.View.UC_V;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,8 +40,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private void btFilmAdmin_Click(object sender, EventArgs e)
         {
-            V_tambahFilm halTambahFilm = new V_tambahFilm();
-            loadUserControl(halTambahFilm);
+          
+            V_DaftarFilm v_DaftarFilm = new V_DaftarFilm();
+            loadUserControl(v_DaftarFilm);
         }
 
         private void btLaporanAdmin_Click(object sender, EventArgs e)
@@ -58,7 +60,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
             if (PopUp == DialogResult.Yes) 
             {
-                Application.Exit(); 
+                V_Login halLogin = new V_Login();
+                this.Hide();
+                halLogin.Show();
             }
             else if (PopUp == DialogResult.No) 
             {

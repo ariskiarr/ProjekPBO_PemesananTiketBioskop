@@ -28,32 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_Laporan));
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 50F);
-            label1.Location = new Point(445, 380);
-            label1.Name = "label1";
-            label1.Size = new Size(592, 133);
-            label1.TabIndex = 0;
-            label1.Text = "BELUM JADI";
             // 
             // V_Laporan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Name = "V_Laporan";
             Size = new Size(1618, 1079);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
     }
 }
