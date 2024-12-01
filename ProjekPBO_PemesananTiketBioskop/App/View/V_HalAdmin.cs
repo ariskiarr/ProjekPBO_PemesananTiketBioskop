@@ -13,6 +13,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
     public partial class V_HalAdmin : Form
     {
+
         public V_HalAdmin()
         {
             V_Profil halProfil = new V_Profil();
@@ -21,14 +22,13 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         }
 
-        public void loadUserControl(Control control)
+        public static void loadUserControl(Control control)
         {
             panelMain.Controls.Clear();
             control.Dock = DockStyle.Fill;
             control.BringToFront();
             control.Focus();
             panelMain.Controls.Add(control);
-
 
         }
 
@@ -61,7 +61,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             if (PopUp == DialogResult.Yes) 
             {
                 V_Login halLogin = new V_Login();
-                this.Hide();
+                this.Close();
                 halLogin.Show();
             }
             else if (PopUp == DialogResult.No) 

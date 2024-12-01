@@ -84,6 +84,27 @@ namespace core
             // Eksekusi dan return reader tanpa menutup koneksi
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
+        public static object ExecuteScalarCommand(string query, NpgsqlParameter[] parameters = null)
+        {
+            try
+            {
+                openConnection();
+                command.CommandText = query;
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                    command.Prepare();
+                }
 
+                // Menjalankan query yang hanya mengembalikan satu nilai (seperti ID)
+                var result = command.ExecuteScalar();
+                closeConnection();
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

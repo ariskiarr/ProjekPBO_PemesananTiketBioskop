@@ -1,21 +1,16 @@
 ﻿using core;
 using ProjekPBO_PemesananTiketBioskop.App.Context;
 using ProjekPBO_PemesananTiketBioskop.App.Model;
+using ProjekPBO_PemesananTiketBioskop.App.View.UC_V;
+using ProjekPBO_PemesananTiketBioskop.App.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Collections.Specialized.BitVector32;
+
 
 namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
     public partial class V_tambahFilm : UserControl
     {
+       
         private byte[] imageBytes;
         private string sinopsisFilm = "";
         public V_tambahFilm()
@@ -54,8 +49,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             tbTambahProduksi.Clear();
             tbTambahSutradara.Clear();
             cbTambahRuangan.SelectedIndex = -1; // Reset ComboBox
-            cbTambahStatus.SelectedIndex = -1; // Reset ComboBox
-            cbWaktuTayang.SelectedIndex = -1; // Reset ComboBox
+            cbTambahStatus.SelectedIndex = -1; 
+            cbWaktuTayang.SelectedIndex = -1; 
             dtTambahTanggalTayang.Value = DateTime.Now; // Reset ke tanggal sekarang
             pbGambarFilm.Image = null; // Hapus gambar di PictureBox
             sinopsisFilm = "";
@@ -114,6 +109,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             }
 
             M_Film dataFilm = new M_Film();
+            
 
             TimeSpan waktuTayang;
             if (!TimeSpan.TryParseExact(cbWaktuTayang.Text, "hh\\:mm\\:ss",
@@ -143,12 +139,44 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
                 pbGambarFilm.Image.Save(ms, pbGambarFilm.Image.RawFormat);
                 dataFilm.gambar = ms.ToArray(); // Konversi ke byte array
             }
-           
-            C_film.addDataFilm(dataFilm);
+
+            M_DetailFilm dataDetail = new M_DetailFilm();
+            int filmId = C_film.addDataFilm(dataFilm);
+            dataDetail.film_id = filmId;
+
+            if (cbTambahRuangan.SelectedItem != null)
+            {
+                string selectedValue = cbTambahRuangan.SelectedItem.ToString();
+                int id_ruangan = 0;
+
+                // Logika berdasarkan nilai ComboBox yang dipilih
+                if (selectedValue == "Ruangan A")
+                {
+                    id_ruangan = 1;
+                }
+                else if (selectedValue == "Ruangan B")
+                {
+                    id_ruangan = 2;
+                }
+                else if (selectedValue == "Ruangan C")
+                {
+                    id_ruangan = 3;
+                }
+
+                dataDetail.ruangan_id = id_ruangan;
+            }
+            else
+            {
+                MessageBox.Show("Silakan pilih ruangan terlebih dahulu.");
+            }
+
+
+            C_detailFilm.addDetailfilm(dataDetail);
             MessageBox.Show("Data Film Berhasil Dibuat !");
             ClearInput();
-
         }
+
+
        
         private void pbGambarFilm_Click(object sender, EventArgs e)
         {
@@ -168,6 +196,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
                 {
                     sinopsisFilm = formSinopsis.Sinopsis; // Ambil nilai sinopsis dari form
                     MessageBox.Show("Sinopsis berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
             }
         }

@@ -26,12 +26,13 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
 
             return datamahasiswa;
         }
-        public static void addDataFilm(M_Film dataFilm)
+        public static int addDataFilm(M_Film dataFilm)
         {
+            string query = $"INSERT INTO {table}(judul_film, genre, sutradara, produksi, aktor, batas_umur, durasi, sinopsis, harga, gambar, status, waktu_tayang, tanggal_tayang) " +
+                           "VALUES(@judul_film, @genre, @sutradara, @produksi, @aktor, @batas_umur, @durasi, @sinopsis, @harga, @gambar, @status, @waktuTayang, @tanggalTayang) " +
+                           "RETURNING film_id;"; // Menambahkan RETURNING untuk mengambil ID film yang baru
 
-            string query = $"INSERT INTO {table}(judul_film, genre, sutradara, produksi, aktor, batas_umur, durasi, sinopsis, harga, gambar, status,waktu_tayang,tanggal_tayang) " +
-                           "VALUES(@judul_film, @genre, @sutradara, @produksi, @aktor, @batas_umur, @durasi, @sinopsis, @harga, @gambar, @status,@waktuTayang,@tanggalTayang);";
-
+            // Menyiapkan parameter untuk query
             NpgsqlParameter[] parameters =
             {
                 new NpgsqlParameter("@judul_film", dataFilm.judul_film),
@@ -45,11 +46,21 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
                 new NpgsqlParameter("@harga", dataFilm.harga),
                 new NpgsqlParameter("@gambar", dataFilm.gambar),
                 new NpgsqlParameter("@status", dataFilm.status),
-                new NpgsqlParameter("@waktuTayang",dataFilm.waktuTayang),
-                new NpgsqlParameter("@tanggalTayang",dataFilm.tanggalTayang)
-            };
+                new NpgsqlParameter("@waktuTayang", dataFilm.waktuTayang),
+                new NpgsqlParameter("@tanggalTayang", dataFilm.tanggalTayang)
+    };
 
-            commandExecutor(query, parameters);
+            // Menjalankan query dan mendapatkan ID film yang baru dimasukkan
+            var result = ExecuteScalarCommand(query, parameters);
+
+            // Memastikan bahwa hasil yang didapat bisa dikonversi menjadi int
+            if (result != null && int.TryParse(result.ToString(), out int filmId))
+            {
+                return filmId;  // Mengembalikan ID film yang baru
+            }
+
+            // Jika tidak berhasil mendapatkan ID, kembalikan nilai default
+            return 0;
         }
         public static void UpdateFilm(M_Film dataFilm)
         {

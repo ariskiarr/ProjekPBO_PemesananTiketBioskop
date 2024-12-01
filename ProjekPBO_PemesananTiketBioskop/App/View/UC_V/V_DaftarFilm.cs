@@ -18,22 +18,12 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
 
         }
 
-        public void loadUserControl(Control control)
-        {
-            this.Controls.Clear();
-            control.Dock = DockStyle.Fill;
-            this.Controls.Add(control);
-            control.BringToFront();
-            control.Focus();
-
-
-        }
+    
 
         private void btTambahFilm_Click(object sender, EventArgs e)
         {
-
             V_tambahFilm halTambahFilm = new V_tambahFilm();
-            loadUserControl(halTambahFilm);
+            V_HalAdmin.loadUserControl(halTambahFilm);
         }
     }
 }

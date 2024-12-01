@@ -170,6 +170,6 @@
         private Button btFilmAdmin;
         private Button btLaporanAdmin;
         private Button btLogoutAdmin;
-        private Panel panelMain;
+        private static Panel panelMain;
     }
 }

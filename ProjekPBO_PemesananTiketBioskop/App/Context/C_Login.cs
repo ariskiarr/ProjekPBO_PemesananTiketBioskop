@@ -1,12 +1,14 @@
 ﻿using core;
 using Npgsql;
 using ProjekPBO_PemesananTiketBioskop.App.Model;
+using ProjekPBO_PemesananTiketBioskop.App.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ProjekPBO_PemesananTiketBioskop.App.Model.M_Akun;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.Context
 {
@@ -38,6 +40,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
                         nomor_telepon = (string)reader["nomor_telepon"] //== DBNull.Value ? null : (string)reader["nomor_telepon"],
                     };
                 };
+            userSession.CurrentUser = loginAkun;
             return loginAkun;
         }
     }
