@@ -1,6 +1,6 @@
 ﻿namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
-    partial class V_Sinopsis
+    partial class V_EditSinopsis
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tbSinopsis = new TextBox();
-            btsimpanSinopsis = new Button();
+            tbEditSinopsis = new TextBox();
+            btsimpanEditSinopsis = new Button();
             SuspendLayout();
             // 
-            // tbSinopsis
+            // tbEditSinopsis
             // 
-            tbSinopsis.BorderStyle = BorderStyle.None;
-            tbSinopsis.Location = new Point(27, 22);
-            tbSinopsis.Multiline = true;
-            tbSinopsis.Name = "tbSinopsis";
-            tbSinopsis.Size = new Size(723, 414);
-            tbSinopsis.TabIndex = 0;
+            tbEditSinopsis.BorderStyle = BorderStyle.None;
+            tbEditSinopsis.Location = new Point(27, 22);
+            tbEditSinopsis.Multiline = true;
+            tbEditSinopsis.Name = "tbEditSinopsis";
+            tbEditSinopsis.Size = new Size(723, 414);
+            tbEditSinopsis.TabIndex = 0;
             // 
-            // btsimpanSinopsis
+            // btsimpanEditSinopsis
             // 
-            btsimpanSinopsis.BackColor = Color.Purple;
-            btsimpanSinopsis.FlatStyle = FlatStyle.Popup;
-            btsimpanSinopsis.ForeColor = SystemColors.Window;
-            btsimpanSinopsis.Location = new Point(638, 448);
-            btsimpanSinopsis.Name = "btsimpanSinopsis";
-            btsimpanSinopsis.Size = new Size(112, 34);
-            btsimpanSinopsis.TabIndex = 1;
-            btsimpanSinopsis.Text = "Simpan";
-            btsimpanSinopsis.UseVisualStyleBackColor = false;
-            btsimpanSinopsis.Click += btsimpanSinopsis_Click;
+            btsimpanEditSinopsis.BackColor = Color.Purple;
+            btsimpanEditSinopsis.FlatStyle = FlatStyle.Popup;
+            btsimpanEditSinopsis.ForeColor = SystemColors.Window;
+            btsimpanEditSinopsis.Location = new Point(638, 448);
+            btsimpanEditSinopsis.Name = "btsimpanEditSinopsis";
+            btsimpanEditSinopsis.Size = new Size(112, 34);
+            btsimpanEditSinopsis.TabIndex = 1;
+            btsimpanEditSinopsis.Text = "Simpan";
+            btsimpanEditSinopsis.UseVisualStyleBackColor = false;
+            btsimpanEditSinopsis.Click += btsimpanSinopsis_Click;
             // 
-            // V_Sinopsis
+            // V_EditSinopsis
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(778, 494);
-            Controls.Add(btsimpanSinopsis);
-            Controls.Add(tbSinopsis);
-            Name = "V_Sinopsis";
+            Controls.Add(btsimpanEditSinopsis);
+            Controls.Add(tbEditSinopsis);
+            Name = "V_EditSinopsis";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "V_Sinopsis";
             ResumeLayout(false);
@@ -70,7 +70,7 @@
 
         #endregion
 
-        private TextBox tbSinopsis;
-        private Button btsimpanSinopsis;
+        private TextBox tbEditSinopsis;
+        private Button btsimpanEditSinopsis;
     }
 }

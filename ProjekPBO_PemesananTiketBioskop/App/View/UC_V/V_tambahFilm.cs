@@ -10,9 +10,10 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
     public partial class V_tambahFilm : UserControl
     {
-       
+
         private byte[] imageBytes;
         private string sinopsisFilm = "";
+        private M_Film dataFilm;
         public V_tambahFilm()
         {
             InitializeComponent();
@@ -49,17 +50,19 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             tbTambahProduksi.Clear();
             tbTambahSutradara.Clear();
             cbTambahRuangan.SelectedIndex = -1; // Reset ComboBox
-            cbTambahStatus.SelectedIndex = -1; 
-            cbWaktuTayang.SelectedIndex = -1; 
+            cbTambahStatus.SelectedIndex = -1;
+            cbWaktuTayang.SelectedIndex = -1;
             dtTambahTanggalTayang.Value = DateTime.Now; // Reset ke tanggal sekarang
             pbGambarFilm.Image = null; // Hapus gambar di PictureBox
             sinopsisFilm = "";
-            
+
         }
         private void V_tambahFilm_Load(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void btSimpanTambahFilm_Click(object sender, EventArgs e)
         {
@@ -109,7 +112,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             }
 
             M_Film dataFilm = new M_Film();
-            
+
 
             TimeSpan waktuTayang;
             if (!TimeSpan.TryParseExact(cbWaktuTayang.Text, "hh\\:mm\\:ss",
@@ -177,7 +180,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
         }
 
 
-       
+
         private void pbGambarFilm_Click(object sender, EventArgs e)
         {
 
@@ -190,18 +193,18 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private void btTambahSinopsis_Click(object sender, EventArgs e)
         {
-            using (V_Sinopsis formSinopsis = new V_Sinopsis(sinopsisFilm)) // Kirim nilai sinopsisFilm ke FormSinopsis
+            using (V_TambahSinopsis formSinopsis = new V_TambahSinopsis(sinopsisFilm)) // Kirim nilai sinopsisFilm ke FormSinopsis
             {
                 if (formSinopsis.ShowDialog() == DialogResult.OK)
                 {
                     sinopsisFilm = formSinopsis.Sinopsis; // Ambil nilai sinopsis dari form
                     MessageBox.Show("Sinopsis berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                 }
             }
+
+
         }
 
-
     }
-
 }

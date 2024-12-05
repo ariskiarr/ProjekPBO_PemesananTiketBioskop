@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_DaftarFilm));
             btTambahFilm = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgDaftarFilm = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgDaftarFilm).BeginInit();
             SuspendLayout();
             // 
             // btTambahFilm
@@ -45,35 +45,36 @@
             btTambahFilm.UseVisualStyleBackColor = false;
             btTambahFilm.Click += btTambahFilm_Click;
             // 
-            // dataGridView1
+            // dgDaftarFilm
             // 
-            dataGridView1.BackgroundColor = SystemColors.Window;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = SystemColors.WindowText;
-            dataGridView1.Location = new Point(97, 209);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1441, 700);
-            dataGridView1.TabIndex = 1;
+            dgDaftarFilm.BackgroundColor = SystemColors.Window;
+            dgDaftarFilm.BorderStyle = BorderStyle.None;
+            dgDaftarFilm.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgDaftarFilm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgDaftarFilm.GridColor = SystemColors.WindowText;
+            dgDaftarFilm.Location = new Point(97, 209);
+            dgDaftarFilm.Name = "dgDaftarFilm";
+            dgDaftarFilm.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgDaftarFilm.Size = new Size(1441, 700);
+            dgDaftarFilm.TabIndex = 1;
+            dgDaftarFilm.CellContentClick += dgDaftarFilm_CellContentClick;
             // 
             // V_DaftarFilm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            Controls.Add(dataGridView1);
+            Controls.Add(dgDaftarFilm);
             Controls.Add(btTambahFilm);
             Name = "V_DaftarFilm";
             Size = new Size(1618, 1079);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgDaftarFilm).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btTambahFilm;
-        private DataGridView dataGridView1;
+        private DataGridView dgDaftarFilm;
     }
 }

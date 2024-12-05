@@ -21,8 +21,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
         public V_editProfil()
         {
             InitializeComponent();
-            tbEmailAdmin.Text= data.email;
-            tbNomorTeleponAdmin.Text= data.nomor_telepon;
+            tbEmailAdmin.Text = data.email;
+            tbNomorTeleponAdmin.Text = data.nomor_telepon;
             tbPasswordAmin.Text = data.password;
             tbUsernameAdmin.Text = data.username;
 
@@ -32,7 +32,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
         private void btSimpanProfilAdmin_Click(object sender, EventArgs e)
         {
             // memastikan bahwa nomor telepon adalah angka
-            if (!int.TryParse(tbNomorTeleponAdmin.Text, out _))
+            if (!double.TryParse(tbNomorTeleponAdmin.Text, out _))
             {
                 MessageBox.Show("Nomor telepon harus berupa angka!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -51,9 +51,15 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             MessageBox.Show("Profil berhasil diupdate!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             V_Profil HalProfil = new V_Profil();
             V_HalAdmin.loadUserControl(HalProfil);
-           
-            
+
+
+        }
+
+        private void btBatalProfilAdmin_Click(object sender, EventArgs e)
+        {
+            V_Profil HalProfil = new V_Profil();
+            V_HalAdmin.loadUserControl(HalProfil);
         }
     }
-    
+
 }

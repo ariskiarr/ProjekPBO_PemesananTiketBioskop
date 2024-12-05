@@ -61,7 +61,7 @@
             pbGambarFilm.Size = new Size(288, 426);
             pbGambarFilm.TabIndex = 0;
             pbGambarFilm.TabStop = false;
-            pbGambarFilm.Click += pbGambarFilm_Click;
+            pbGambarFilm.Click += this.pbGambarFilm_Click;
             // 
             // tbTambahJudul
             // 
@@ -126,7 +126,7 @@
             btTambahSinopsis.Size = new Size(73, 68);
             btTambahSinopsis.TabIndex = 7;
             btTambahSinopsis.UseVisualStyleBackColor = false;
-            btTambahSinopsis.Click += btTambahSinopsis_Click;
+            btTambahSinopsis.Click += this.btTambahSinopsis_Click;
             // 
             // dtTambahTanggalTayang
             // 
@@ -190,7 +190,7 @@
             btSimpanTambahFilm.TabIndex = 14;
             btSimpanTambahFilm.Text = " ";
             btSimpanTambahFilm.UseVisualStyleBackColor = false;
-            btSimpanTambahFilm.Click += btSimpanTambahFilm_Click;
+            btSimpanTambahFilm.Click += this.btSimpanTambahFilm_Click;
             // 
             // cbWaktuTayang
             // 
@@ -226,7 +226,7 @@
             Controls.Add(pbGambarFilm);
             Name = "V_tambahFilm";
             Size = new Size(1618, 1079);
-            Load += V_tambahFilm_Load;
+            Load += this.V_tambahFilm_Load;
             ((System.ComponentModel.ISupportInitialize)pbGambarFilm).EndInit();
             ResumeLayout(false);
             PerformLayout();

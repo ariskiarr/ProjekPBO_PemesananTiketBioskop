@@ -4,25 +4,26 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
-    public partial class V_Sinopsis : Form
+    public partial class V_TambahSinopsis : Form
     {
         public string Sinopsis { get; private set; }
-        public V_Sinopsis(string existingSinopsis = "")
+       
+        public V_TambahSinopsis(string Sinopsis)
         {
             InitializeComponent();
-            tbSinopsis.Text = existingSinopsis;
+            tbSinopsis.Text = Sinopsis;
+
         }
 
-        
         private void btsimpanSinopsis_Click(object sender, EventArgs e)
         {
-            // Simpan teks sinopsis
             Sinopsis = tbSinopsis.Text.Trim();
 
             // Validasi input

@@ -93,6 +93,7 @@
             btBatalProfilAdmin.Size = new Size(209, 61);
             btBatalProfilAdmin.TabIndex = 5;
             btBatalProfilAdmin.UseVisualStyleBackColor = false;
+            btBatalProfilAdmin.Click += btBatalProfilAdmin_Click;
             // 
             // V_editProfil
             // 

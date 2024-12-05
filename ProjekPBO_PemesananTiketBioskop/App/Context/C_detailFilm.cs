@@ -27,6 +27,21 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
 
         }
 
+        public static void updateDetailFilm(M_DetailFilm dataFilm)
+        {
+            string query = $"UPDATE {table} " +
+                           "SET ruangan_id = @ruangan_id " +
+                           "WHERE film_id = @film_id;";
+
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@ruangan_id", dataFilm.ruangan_id),
+                new NpgsqlParameter("@film_id", dataFilm.film_id),
+            };
+            commandExecutor(query, parameters);
+        }
     }
 }
+    
+
     
