@@ -1,6 +1,6 @@
 ﻿namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
-    partial class V_Profil
+    partial class V_ProfilAdmin
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_Profil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ProfilAdmin));
             lbUsernameAdmin = new Label();
             lbEmailAdmin = new Label();
             lbPasswordAdmin = new Label();

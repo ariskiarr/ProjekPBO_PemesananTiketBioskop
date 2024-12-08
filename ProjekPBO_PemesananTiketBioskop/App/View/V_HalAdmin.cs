@@ -16,7 +16,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         public V_HalAdmin()
         {
-            V_Profil halProfil = new V_Profil();
+            V_ProfilAdmin halProfil = new V_ProfilAdmin();
             InitializeComponent();
             loadUserControl(halProfil);
 
@@ -34,7 +34,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private void btProfilAdmin_Click(object sender, EventArgs e)
         {
-            V_Profil halProfil = new V_Profil();
+            V_ProfilAdmin halProfil = new V_ProfilAdmin();
             loadUserControl(halProfil);
         }
 

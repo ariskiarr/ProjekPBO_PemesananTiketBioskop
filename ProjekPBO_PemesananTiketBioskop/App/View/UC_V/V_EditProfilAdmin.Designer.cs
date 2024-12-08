@@ -1,6 +1,6 @@
 ﻿namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
 {
-    partial class V_editProfil
+    partial class V_EditProfilAdmin
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_editProfil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_EditProfilAdmin));
             tbUsernameAdmin = new TextBox();
             tbEmailAdmin = new TextBox();
             tbPasswordAmin = new TextBox();

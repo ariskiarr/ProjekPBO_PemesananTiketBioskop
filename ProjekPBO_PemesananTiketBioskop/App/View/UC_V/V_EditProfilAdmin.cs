@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
 {
-    public partial class V_editProfil : UserControl
+    public partial class V_EditProfilAdmin : UserControl
     {
-        V_Profil halProfil = new V_Profil();
+        V_ProfilAdmin halProfil = new V_ProfilAdmin();
         M_Akun data = userSession.CurrentUser;
         C_Profil profil = new C_Profil();
-        public V_editProfil()
+        public V_EditProfilAdmin()
         {
             InitializeComponent();
             tbEmailAdmin.Text = data.email;
@@ -49,7 +49,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             //userSession.CurrentUser = data;
 
             MessageBox.Show("Profil berhasil diupdate!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            V_Profil HalProfil = new V_Profil();
+            V_ProfilAdmin HalProfil = new V_ProfilAdmin();
             V_HalAdmin.loadUserControl(HalProfil);
 
 
@@ -57,7 +57,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
 
         private void btBatalProfilAdmin_Click(object sender, EventArgs e)
         {
-            V_Profil HalProfil = new V_Profil();
+            V_ProfilAdmin HalProfil = new V_ProfilAdmin();
             V_HalAdmin.loadUserControl(HalProfil);
         }
     }

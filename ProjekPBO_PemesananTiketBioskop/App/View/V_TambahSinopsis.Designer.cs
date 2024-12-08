@@ -62,6 +62,7 @@
             Controls.Add(btsimpanSinopsis);
             Controls.Add(tbSinopsis);
             Name = "V_TambahSinopsis";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "V_TambahSinopsis";
             ResumeLayout(false);
             PerformLayout();

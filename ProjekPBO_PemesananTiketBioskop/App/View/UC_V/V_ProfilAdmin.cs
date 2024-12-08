@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.View
 {
-    public partial class V_Profil : UserControl
+    public partial class V_ProfilAdmin : UserControl
     {
         public void loadUserControl(Control control)
         {
@@ -24,7 +24,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             control.Focus();
 
         }
-        public V_Profil()
+        public V_ProfilAdmin()
         {
             InitializeComponent();
             M_Akun data = userSession.CurrentUser;
@@ -37,7 +37,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private void btEditProfilAdmin_Click(object sender, EventArgs e)
         {
-            V_editProfil halEditProfil = new V_editProfil();
+            V_EditProfilAdmin halEditProfil = new V_EditProfilAdmin();
             loadUserControl(halEditProfil );
         }
      

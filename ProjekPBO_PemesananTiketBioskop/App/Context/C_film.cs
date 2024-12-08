@@ -167,5 +167,43 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             return dataFilm;
         }
 
+        public static List<M_Film> GetFilmsByFilter(string usiaFilter)
+        {
+            string query = usiaFilter.ToLower() switch
+            {
+                "13+" => $"SELECT * FROM {table} WHERE batas_umur >= 13 AND status = 'Sedang Tayang'",
+                "17+" => $"SELECT * FROM {table} WHERE batas_umur >= 17 AND status = 'Sedang Tayang'",
+                _ => $"SELECT * FROM {table} WHERE status = 'Sedang Tayang'" // Default: select all films that are currently showing
+
+            };
+
+            DataTable data = queryExecutor(query);
+            List<M_Film> filmList = new List<M_Film>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                filmList.Add(new M_Film
+                {
+                    film_id = Convert.ToInt32(row["film_id"]),
+                    judul_film = row["judul_film"].ToString(),
+                    genre = row["genre"].ToString(),
+                    sutradara = row["sutradara"].ToString(),
+                    produksi = row["produksi"].ToString(),
+                    aktor = row["aktor"].ToString(),
+                    batas_umur = Convert.ToInt32(row["batas_umur"]),
+                    durasi = row["durasi"].ToString(),
+                    sinopsis = row["sinopsis"] == DBNull.Value ? null : row["sinopsis"].ToString(),
+                    harga = Convert.ToInt32(row["harga"]),
+                    gambar = row["gambar"] == DBNull.Value ? null : (byte[])row["gambar"],
+                    status = row["status"].ToString(),
+                    waktuTayang = (TimeSpan)row["waktu_tayang"],
+                    tanggalTayang = (DateTime)row["tanggal_tayang"]
+                });
+            }
+
+            return filmList;
+        }
+
     }
 }
+
