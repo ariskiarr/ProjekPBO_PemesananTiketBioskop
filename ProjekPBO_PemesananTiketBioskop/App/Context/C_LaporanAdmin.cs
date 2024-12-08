@@ -19,13 +19,16 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             transaksi.waktu_transaksi,
             transaksi.tanggal_transaksi,
             transaksi.metode_pembayaran,
-            transaksi.jumlah_pembayaran
+            transaksi.jumlah_pembayaran,
+            kursi.nomor_kursi
         FROM 
             transaksi
         JOIN 
             akun ON transaksi.akun_id = akun.akun_id
         JOIN 
-            detail_film ON transaksi.detailfilm_id = detail_film.detailfilm_id
+            kursi ON transaksi.kursi_id = kursi.kursi_id
+        JOIN 
+            detail_film ON kursi.detailfilm_id = detail_film.detailfilm_id
         JOIN 
             film ON detail_film.film_id = film.film_id;";
 
