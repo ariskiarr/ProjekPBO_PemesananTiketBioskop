@@ -54,7 +54,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgLaporanTransaksi.DefaultCellStyle = dataGridViewCellStyle2;
             dgLaporanTransaksi.GridColor = Color.Black;
-            dgLaporanTransaksi.Location = new Point(116, 239);
+            dgLaporanTransaksi.Location = new Point(86, 239);
             dgLaporanTransaksi.Name = "dgLaporanTransaksi";
             dgLaporanTransaksi.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -66,7 +66,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgLaporanTransaksi.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgLaporanTransaksi.RowHeadersWidth = 80;
-            dgLaporanTransaksi.Size = new Size(1400, 709);
+            dgLaporanTransaksi.Size = new Size(1454, 709);
             dgLaporanTransaksi.TabIndex = 0;
             dgLaporanTransaksi.CellContentClick += dgLaporanTransaksi_CellContentClick;
             // 

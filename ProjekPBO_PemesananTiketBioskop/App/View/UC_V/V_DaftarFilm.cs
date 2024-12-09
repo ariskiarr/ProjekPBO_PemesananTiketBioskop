@@ -30,6 +30,22 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dgDaftarFilm.DataSource = dataFilm;
                 dgDaftarFilm.AllowUserToAddRows = false;
                 dgDaftarFilm.RowHeadersVisible = false;
+
+                dgDaftarFilm.Columns["film_id"].HeaderText = "ID Film";
+                dgDaftarFilm.Columns["judul_film"].HeaderText = "Judul Film";
+                dgDaftarFilm.Columns["genre"].HeaderText = "Genre";
+                dgDaftarFilm.Columns["sutradara"].HeaderText = "Sutradara";
+                dgDaftarFilm.Columns["produksi"].HeaderText = "Produksi";
+                dgDaftarFilm.Columns["aktor"].HeaderText = "Aktor/Aktris";
+                dgDaftarFilm.Columns["batas_umur"].HeaderText = "Batas Umur";
+                dgDaftarFilm.Columns["durasi"].HeaderText = "Durasi (menit)";
+                dgDaftarFilm.Columns["sinopsis"].HeaderText = "Sinopsis";
+                dgDaftarFilm.Columns["harga"].HeaderText = "Harga";
+                dgDaftarFilm.Columns["status"].HeaderText = "Status Film";
+                dgDaftarFilm.Columns["nama_ruangan"].HeaderText = "Nama Ruangan";
+             
+                dgDaftarFilm.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold); 
+                dgDaftarFilm.ColumnHeadersHeight = 30; 
             }
             catch (Exception ex)
             {
