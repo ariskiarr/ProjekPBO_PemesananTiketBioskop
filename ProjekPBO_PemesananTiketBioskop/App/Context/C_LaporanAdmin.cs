@@ -16,21 +16,27 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
         SELECT 
             akun.username,
             film.judul_film,
+            ruangan.nama_ruangan,
             transaksi.waktu_transaksi,
             transaksi.tanggal_transaksi,
             transaksi.metode_pembayaran,
-            transaksi.jumlah_pembayaran,
-            kursi.nomor_kursi
+            kursi.nomor_kursi,
+            transaksi.jumlah_pembayaran
         FROM 
             transaksi
         JOIN 
             akun ON transaksi.akun_id = akun.akun_id
         JOIN 
-            kursi ON transaksi.kursi_id = kursi.kursi_id
+            detail_kursi ON transaksi.detailkursi_id = detail_kursi.detailkursi_id
         JOIN 
-            detail_film ON kursi.detailfilm_id = detail_film.detailfilm_id
+            kursi ON detail_kursi.kursi_id = kursi.kursi_id
         JOIN 
-            film ON detail_film.film_id = film.film_id;";
+            detail_film ON detail_kursi.detailfilm_id = detail_film.detailfilm_id
+        JOIN 
+            film ON detail_film.film_id = film.film_id
+        JOIN 
+            ruangan ON detail_film.ruangan_id = ruangan.ruangan_id;
+        ";
 
             DataTable dataFilm = queryExecutor(query);
             return dataFilm;
