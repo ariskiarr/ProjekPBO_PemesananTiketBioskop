@@ -37,9 +37,9 @@
             pbGambarFilmDetail = new PictureBox();
             btLanjutkanDetailFilm = new Button();
             lbJudulFilmDetail = new Label();
-            lbBatasUmurDetail = new Label();
             lbDurasiDetail = new Label();
             btKembaliDetail = new Button();
+            lbBatasUmurDetail = new Label();
             ((System.ComponentModel.ISupportInitialize)pbGambarFilmDetail).BeginInit();
             SuspendLayout();
             // 
@@ -135,17 +135,6 @@
             lbJudulFilmDetail.TabIndex = 8;
             lbJudulFilmDetail.Text = "Judul Film";
             // 
-            // lbBatasUmurDetail
-            // 
-            lbBatasUmurDetail.AutoSize = true;
-            lbBatasUmurDetail.BackColor = Color.White;
-            lbBatasUmurDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbBatasUmurDetail.Location = new Point(281, 739);
-            lbBatasUmurDetail.Name = "lbBatasUmurDetail";
-            lbBatasUmurDetail.Size = new Size(42, 32);
-            lbBatasUmurDetail.TabIndex = 9;
-            lbBatasUmurDetail.Text = "13";
-            // 
             // lbDurasiDetail
             // 
             lbDurasiDetail.AutoSize = true;
@@ -171,6 +160,17 @@
             btKembaliDetail.TabIndex = 11;
             btKembaliDetail.UseVisualStyleBackColor = false;
             btKembaliDetail.Click += btKembaliDetail_Click;
+            // 
+            // lbBatasUmurDetail
+            // 
+            lbBatasUmurDetail.AutoSize = true;
+            lbBatasUmurDetail.BackColor = Color.Transparent;
+            lbBatasUmurDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbBatasUmurDetail.Location = new Point(285, 739);
+            lbBatasUmurDetail.Name = "lbBatasUmurDetail";
+            lbBatasUmurDetail.Size = new Size(42, 32);
+            lbBatasUmurDetail.TabIndex = 9;
+            lbBatasUmurDetail.Text = "13";
             // 
             // V_DetailFilm
             // 
@@ -207,8 +207,8 @@
         private PictureBox pbGambarFilmDetail;
         private Button btLanjutkanDetailFilm;
         private Label lbJudulFilmDetail;
-        private Label lbBatasUmurDetail;
         private Label lbDurasiDetail;
         private Button btKembaliDetail;
+        private Label lbBatasUmurDetail;
     }
 }

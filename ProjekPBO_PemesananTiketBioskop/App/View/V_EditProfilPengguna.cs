@@ -50,7 +50,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
             // Perbarui data di session setelah update
             userSession.CurrentUser = data;
-
+            
             MessageBox.Show("Profil berhasil diupdate!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Panggil metode untuk memperbarui tampilan di form profil

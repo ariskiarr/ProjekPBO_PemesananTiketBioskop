@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace ProjekPBO_PemesananTiketBioskop.App.Model
 {
-   public class M_DetailFilm
+    public class M_Kursi
     {
         [Key]
-        public int detailfilm_id { get; set; }
-        [Required]
-        public int ruangan_id { get; set; }
-        [Required]
-        public int film_id { get; set; }
+        public int kursi_id { get; set; }
 
+        [Required]
+        public string nomor_kursi { get; set; }
+
+        [Required]
+        public string status { get; set; }
+
+        [Required]
+        public int detailfilm_id { get; set; }  
     }
 }

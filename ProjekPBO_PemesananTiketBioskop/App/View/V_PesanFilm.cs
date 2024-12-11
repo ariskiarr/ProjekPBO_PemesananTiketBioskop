@@ -15,62 +15,74 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
     public partial class V_PesanFilm : Form
     {
         private int filmId;
+        private int detailfilmID;
+
         public V_PesanFilm(int filmId)
         {
             InitializeComponent();
             this.filmId = filmId;
-            LoadFilm();
-
+            LoadFilm(); // Memuat data film dan ruangan saat form diinisialisasi
         }
         public void LoadFilm()
         {
-            M_Film film = C_PesanFilm.GetdataFilm(filmId); // Ambil data film berdasarkan ID
-
-            if (film != null)
+            try
             {
-                // Menampilkan detail film ke elemen UI
-                lbHargaPesan.Text = $"Rp.{film.harga.ToString()}";
-                // Menampilkan gambar film
-                if (film.gambar != null)
+                // Ambil data film dan ruangan berdasarkan ID film
+                var (film, ruangan, detailfilmID) = C_film.GetDataFilmAndRuangan(filmId);
+
+                if (film != null)
                 {
-                    pbGambarFilmPesan.Image = Image.FromStream(new MemoryStream(film.gambar));
+                    this.detailfilmID = detailfilmID; // Menyimpan detailfilmID yang diterima dari query
+
+                    lbJudulFilmPesan.Text = film.judul_film;
+                    lbHargaPesan.Text = $"Rp.{film.harga.ToString("N0")}";
+
+                    // Menampilkan nama ruangan
+                    lbruanganPesan.Text = ruangan.nama_ruangan;
+
+                    // Menampilkan gambar film
+                    if (film.gambar != null && film.gambar.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(film.gambar))
+                        {
+                            pbGambarFilmPesan.Image = Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        pbGambarFilmPesan.Image = null; // Jika gambar tidak ada
+                    }
+
+                    lbtanggalTayangPesan.Text = film.tanggalTayang.ToString("dd MMMM yyyy");
+                    lbWaktuTayangPesan.Text = film.waktuTayang.ToString(@"hh\:mm");
+                    lbBatasUmurPesan.Text = film.batas_umur.ToString();
                 }
                 else
                 {
-                    pbGambarFilmPesan.Image = null; // Jika gambar tidak ada
+                    MessageBox.Show("Film tidak ditemukan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close(); // Tutup form jika film tidak ditemukan
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Film tidak ditemukan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close(); // Tutup form jika film tidak ditemukan
-            };
+                MessageBox.Show($"Terjadi kesalahan saat memuat data film: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+    
+
         private void btKembaliPesan_Click(object sender, EventArgs e)
         {
-            V_DetailFilm formDetailFilm = new V_DetailFilm(filmId);
-            formDetailFilm.Show();
+            V_DetailFilm HaldetailFilm = new V_DetailFilm(filmId);
             this.Hide();
+            HaldetailFilm.Show();
 
         }
 
         private void btPilihKursi_Click(object sender, EventArgs e)
         {
-            if (cbPilihRuanganFIlm.SelectedIndex == -1) // -1 berarti belum ada yang dipilih
-            {
-                MessageBox.Show("Silakan pilih ruangan terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Hentikan eksekusi jika belum memilih ruangan
-            }
-
-            // Melanjutkan ke pemilihan kursi jika ruangan sudah dipilih
+            V_PilihKursiPelanggan HalPilihKursi = new V_PilihKursiPelanggan(filmId,detailfilmID);
             this.Hide();
-            V_PilihKursiPelanggan FormPilihKursi = new V_PilihKursiPelanggan(filmId);
-            FormPilihKursi.Show();
-        }
-
-        private void btLanjutPesan_Click(object sender, EventArgs e)
-        {
-
+            HalPilihKursi.Show();
         }
     }
 }

@@ -46,7 +46,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 cbEditWaktuTayang.Text = film.waktuTayang.ToString(@"hh\:mm\:ss");
 
 
-
                 // Menangani gambar
                 if (film.gambar != null)
                 {
@@ -191,7 +190,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dataFilm.gambar = ms.ToArray(); // Konversi ke byte array
             }
 
-  
             C_film.UpdateFilm(dataFilm);
 
             M_DetailFilm dataDetail = new M_DetailFilm

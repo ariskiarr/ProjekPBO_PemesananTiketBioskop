@@ -31,10 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_PesanFilm));
             pbGambarFilmPesan = new PictureBox();
             btPilihKursi = new Button();
-            cbPilihRuanganFIlm = new ComboBox();
             lbHargaPesan = new Label();
             btKembaliPesan = new Button();
-            btLanjutPesan = new Button();
+            lbruanganPesan = new Label();
+            lbJudulFilmPesan = new Label();
+            lbWaktuTayangPesan = new Label();
+            lbtanggalTayangPesan = new Label();
+            lbBatasUmurPesan = new Label();
             ((System.ComponentModel.ISupportInitialize)pbGambarFilmPesan).BeginInit();
             SuspendLayout();
             // 
@@ -48,32 +51,23 @@
             // 
             // btPilihKursi
             // 
-            btPilihKursi.Font = new Font("Segoe UI", 16F);
-            btPilihKursi.Location = new Point(955, 361);
+            btPilihKursi.BackColor = Color.Transparent;
+            btPilihKursi.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btPilihKursi.ForeColor = Color.Black;
+            btPilihKursi.Location = new Point(1062, 567);
             btPilihKursi.Name = "btPilihKursi";
-            btPilihKursi.Size = new Size(227, 48);
+            btPilihKursi.Size = new Size(227, 51);
             btPilihKursi.TabIndex = 1;
             btPilihKursi.Text = "Klik";
-            btPilihKursi.UseVisualStyleBackColor = true;
+            btPilihKursi.UseVisualStyleBackColor = false;
             btPilihKursi.Click += btPilihKursi_Click;
-            // 
-            // cbPilihRuanganFIlm
-            // 
-            cbPilihRuanganFIlm.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPilihRuanganFIlm.Font = new Font("Segoe UI", 16F);
-            cbPilihRuanganFIlm.FormattingEnabled = true;
-            cbPilihRuanganFIlm.Items.AddRange(new object[] { "Ruangan A", "Ruangan B", "Ruangan C" });
-            cbPilihRuanganFIlm.Location = new Point(955, 445);
-            cbPilihRuanganFIlm.Name = "cbPilihRuanganFIlm";
-            cbPilihRuanganFIlm.Size = new Size(227, 53);
-            cbPilihRuanganFIlm.TabIndex = 2;
             // 
             // lbHargaPesan
             // 
             lbHargaPesan.AutoSize = true;
             lbHargaPesan.BackColor = Color.White;
             lbHargaPesan.Font = new Font("Segoe UI", 18F);
-            lbHargaPesan.Location = new Point(946, 523);
+            lbHargaPesan.Location = new Point(1062, 701);
             lbHargaPesan.Name = "lbHargaPesan";
             lbHargaPesan.Size = new Size(116, 48);
             lbHargaPesan.TabIndex = 3;
@@ -87,27 +81,67 @@
             btKembaliPesan.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btKembaliPesan.FlatStyle = FlatStyle.Flat;
             btKembaliPesan.ForeColor = Color.Transparent;
-            btKembaliPesan.Location = new Point(1093, 967);
+            btKembaliPesan.Location = new Point(1455, 968);
             btKembaliPesan.Name = "btKembaliPesan";
             btKembaliPesan.Size = new Size(295, 55);
             btKembaliPesan.TabIndex = 4;
             btKembaliPesan.UseVisualStyleBackColor = false;
             btKembaliPesan.Click += btKembaliPesan_Click;
             // 
-            // btLanjutPesan
+            // lbruanganPesan
             // 
-            btLanjutPesan.BackColor = Color.Transparent;
-            btLanjutPesan.FlatAppearance.BorderSize = 0;
-            btLanjutPesan.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btLanjutPesan.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btLanjutPesan.FlatStyle = FlatStyle.Flat;
-            btLanjutPesan.ForeColor = Color.Transparent;
-            btLanjutPesan.Location = new Point(1450, 967);
-            btLanjutPesan.Name = "btLanjutPesan";
-            btLanjutPesan.Size = new Size(296, 55);
-            btLanjutPesan.TabIndex = 5;
-            btLanjutPesan.UseVisualStyleBackColor = false;
-            btLanjutPesan.Click += btLanjutPesan_Click;
+            lbruanganPesan.AutoSize = true;
+            lbruanganPesan.BackColor = Color.White;
+            lbruanganPesan.Font = new Font("Segoe UI", 18F);
+            lbruanganPesan.Location = new Point(1062, 634);
+            lbruanganPesan.Name = "lbruanganPesan";
+            lbruanganPesan.Size = new Size(159, 48);
+            lbruanganPesan.TabIndex = 6;
+            lbruanganPesan.Text = "Ruangan";
+            // 
+            // lbJudulFilmPesan
+            // 
+            lbJudulFilmPesan.AutoSize = true;
+            lbJudulFilmPesan.BackColor = Color.White;
+            lbJudulFilmPesan.Font = new Font("Segoe UI", 18F);
+            lbJudulFilmPesan.Location = new Point(1062, 342);
+            lbJudulFilmPesan.Name = "lbJudulFilmPesan";
+            lbJudulFilmPesan.Size = new Size(180, 48);
+            lbJudulFilmPesan.TabIndex = 7;
+            lbJudulFilmPesan.Text = "Judul Film";
+            // 
+            // lbWaktuTayangPesan
+            // 
+            lbWaktuTayangPesan.AutoSize = true;
+            lbWaktuTayangPesan.BackColor = Color.White;
+            lbWaktuTayangPesan.Font = new Font("Segoe UI", 18F);
+            lbWaktuTayangPesan.Location = new Point(1062, 420);
+            lbWaktuTayangPesan.Name = "lbWaktuTayangPesan";
+            lbWaktuTayangPesan.Size = new Size(240, 48);
+            lbWaktuTayangPesan.TabIndex = 8;
+            lbWaktuTayangPesan.Text = "Waktu Tayang";
+            // 
+            // lbtanggalTayangPesan
+            // 
+            lbtanggalTayangPesan.AutoSize = true;
+            lbtanggalTayangPesan.BackColor = Color.White;
+            lbtanggalTayangPesan.Font = new Font("Segoe UI", 18F);
+            lbtanggalTayangPesan.Location = new Point(1062, 492);
+            lbtanggalTayangPesan.Name = "lbtanggalTayangPesan";
+            lbtanggalTayangPesan.Size = new Size(261, 48);
+            lbtanggalTayangPesan.TabIndex = 9;
+            lbtanggalTayangPesan.Text = "Tanggal Tayang";
+            // 
+            // lbBatasUmurPesan
+            // 
+            lbBatasUmurPesan.AutoSize = true;
+            lbBatasUmurPesan.BackColor = Color.Transparent;
+            lbBatasUmurPesan.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbBatasUmurPesan.Location = new Point(367, 806);
+            lbBatasUmurPesan.Name = "lbBatasUmurPesan";
+            lbBatasUmurPesan.Size = new Size(42, 32);
+            lbBatasUmurPesan.TabIndex = 10;
+            lbBatasUmurPesan.Text = "13";
             // 
             // V_PesanFilm
             // 
@@ -115,14 +149,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1898, 1064);
-            Controls.Add(btLanjutPesan);
+            Controls.Add(lbBatasUmurPesan);
+            Controls.Add(lbtanggalTayangPesan);
+            Controls.Add(lbWaktuTayangPesan);
+            Controls.Add(lbJudulFilmPesan);
+            Controls.Add(lbruanganPesan);
             Controls.Add(btKembaliPesan);
             Controls.Add(lbHargaPesan);
-            Controls.Add(cbPilihRuanganFIlm);
             Controls.Add(btPilihKursi);
             Controls.Add(pbGambarFilmPesan);
             Name = "V_PesanFilm";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "V_PesanFilm";
             ((System.ComponentModel.ISupportInitialize)pbGambarFilmPesan).EndInit();
             ResumeLayout(false);
@@ -133,9 +170,12 @@
 
         private PictureBox pbGambarFilmPesan;
         private Button btPilihKursi;
-        private ComboBox cbPilihRuanganFIlm;
         private Label lbHargaPesan;
         private Button btKembaliPesan;
-        private Button btLanjutPesan;
+        private Label lbruanganPesan;
+        private Label lbJudulFilmPesan;
+        private Label lbWaktuTayangPesan;
+        private Label lbtanggalTayangPesan;
+        private Label lbBatasUmurPesan;
     }
 }

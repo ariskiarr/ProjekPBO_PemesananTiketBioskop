@@ -15,6 +15,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
     public partial class V_DetailFilm : Form
     {
         private int filmId;
+        private int detailfilmID;
         public V_DetailFilm(int filmId)
         {
             InitializeComponent();

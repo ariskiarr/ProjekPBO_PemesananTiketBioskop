@@ -1,12 +1,9 @@
 ﻿using core;
 using Npgsql;
 using ProjekPBO_PemesananTiketBioskop.App.Model;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace ProjekPBO_PemesananTiketBioskop.App.Context
 {
@@ -83,8 +80,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             WHERE 
                 film_id = @film_id";
 
-                NpgsqlParameter[] parameters =
-                {
+            NpgsqlParameter[] parameters =
+            {
             new NpgsqlParameter("@judul_film", dataFilm.judul_film),
             new NpgsqlParameter("@genre", dataFilm.genre),
             new NpgsqlParameter("@sutradara", dataFilm.sutradara),
@@ -163,7 +160,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
         JOIN 
             ruangan ON detail_film.ruangan_id = ruangan.ruangan_id;";
 
-            DataTable dataFilm = queryExecutor(query); 
+            DataTable dataFilm = queryExecutor(query);
             return dataFilm;
         }
 
@@ -203,6 +200,87 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
 
             return filmList;
         }
+
+        public static (M_Film, M_RuanganFilm, int) GetDataFilmAndRuangan(int filmId)
+        {
+            string query = @"
+    SELECT  
+        film.film_id,
+        film.judul_film, 
+        film.genre, 
+        film.sutradara, 
+        film.produksi, 
+        film.aktor, 
+        film.batas_umur, 
+        film.durasi, 
+        film.sinopsis, 
+        film.harga, 
+        film.gambar, 
+        film.status,
+        film.waktu_tayang,
+        film.tanggal_tayang,
+        ruangan.nama_ruangan,
+        detail_film.detailfilm_id
+    FROM 
+        detail_film
+    JOIN 
+        film ON detail_film.film_id = film.film_id
+    JOIN 
+        ruangan ON detail_film.ruangan_id = ruangan.ruangan_id
+    WHERE 
+        film.film_id = @filmId";
+
+            // Parameter untuk query
+            NpgsqlParameter[] parameters =
+            {
+        new NpgsqlParameter("@filmId", filmId)
+    };
+
+            // Eksekusi query menggunakan DatabaseWrapper
+            DataTable data = DatabaseWrapper.queryExecutor(query, parameters);
+
+            // Inisialisasi objek film, ruangan, dan detailfilmID
+            M_Film film = null;
+            M_RuanganFilm ruangan = null;
+            int detailfilmID = 0;
+
+            if (data.Rows.Count > 0)
+            {
+                DataRow row = data.Rows[0];
+
+                // Isi data film
+                film = new M_Film
+                {
+                    film_id = Convert.ToInt32(row["film_id"]),
+                    judul_film = row["judul_film"].ToString(),
+                    genre = row["genre"].ToString(),
+                    sutradara = row["sutradara"].ToString(),
+                    produksi = row["produksi"].ToString(),
+                    aktor = row["aktor"].ToString(),
+                    batas_umur = Convert.ToInt32(row["batas_umur"]),
+                    durasi = row["durasi"].ToString(),
+                    sinopsis = row["sinopsis"] == DBNull.Value ? null : row["sinopsis"].ToString(),
+                    harga = Convert.ToInt32(row["harga"]),
+                    gambar = row["gambar"] == DBNull.Value ? null : (byte[])row["gambar"],
+                    status = row["status"].ToString(),
+                    waktuTayang = (TimeSpan)row["waktu_tayang"],
+                    tanggalTayang = (DateTime)row["tanggal_tayang"]
+                };
+
+                // Isi data ruangan
+                ruangan = new M_RuanganFilm
+                {
+                    nama_ruangan = row["nama_ruangan"].ToString()
+                };
+
+                // Isi detailfilmID
+                detailfilmID = Convert.ToInt32(row["detailfilm_id"]);
+            }
+
+            // Mengembalikan tuple
+            return (film, ruangan, detailfilmID);
+        }
+
 
     }
 }

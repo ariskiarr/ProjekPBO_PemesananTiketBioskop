@@ -17,7 +17,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             try
             {
                 string query = @"
-            SELECT harga, gambar
+            SELECT judul_film,harga, gambar
             FROM film 
             WHERE film_id = @filmId";
 
