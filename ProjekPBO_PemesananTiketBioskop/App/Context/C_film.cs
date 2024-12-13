@@ -18,10 +18,10 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             FROM film";
 
 
-            DataTable datamahasiswa = queryExecutor(query);
+            DataTable dataFilm = queryExecutor(query);
 
 
-            return datamahasiswa;
+            return dataFilm;
         }
         public static int addDataFilm(M_Film dataFilm)
         {
