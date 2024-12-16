@@ -149,7 +149,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             film.aktor, 
             film.batas_umur, 
             film.durasi, 
-            film.sinopsis, 
+            film.sinopsis,
+            film.waktu_tayang,
+            film.tanggal_tayang,
             film.harga, 
             film.status,
             ruangan.nama_ruangan

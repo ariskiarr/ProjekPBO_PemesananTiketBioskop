@@ -12,19 +12,20 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
    
         public class C_KursiPelanggan
         {
-    
+
 
 
         // Method untuk menandai kursi sebagai terpesan berdasarkan id_detail_film dan nomor kursi
-        public static void PesanKursi(int idDetailFilm, string nomorKursi)
+        public static int PesanKursi(int idDetailFilm, string nomorKursi)
         {
             try
             {
                 string query = @"
-            INSERT INTO detail_kursi (kursi_id, detailfilm_id)
-            SELECT k.kursi_id, @idDetailFilm
-            FROM kursi k
-            WHERE k.nomor_kursi = @nomorKursi";
+        INSERT INTO detail_kursi (kursi_id, detailfilm_id)
+        SELECT k.kursi_id, @idDetailFilm
+        FROM kursi k
+        WHERE k.nomor_kursi = @nomorKursi
+        RETURNING detailkursi_id"; // Mengembalikan id_detail_kursi
 
                 var parameters = new NpgsqlParameter[]
                 {
@@ -32,11 +33,22 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
             new NpgsqlParameter("@nomorKursi", NpgsqlTypes.NpgsqlDbType.Varchar) { Value = nomorKursi }
                 };
 
-                DatabaseWrapper.queryExecutor(query, parameters);
+                // Eksekusi query dan ambil nilai yang dikembalikan
+                DataTable result = DatabaseWrapper.queryExecutor(query, parameters);
+
+                if (result.Rows.Count > 0)
+                {
+                    return Convert.ToInt32(result.Rows[0][0]); // Ambil nilai id_detail_kursi
+                }
+                else
+                {
+                    throw new Exception("Gagal mendapatkan id_detail_kursi.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error saat menyimpan pemesanan kursi: {ex.Message}");
+                throw; // Jangan lupa melempar ulang error jika diperlukan untuk debugging
             }
         }
 

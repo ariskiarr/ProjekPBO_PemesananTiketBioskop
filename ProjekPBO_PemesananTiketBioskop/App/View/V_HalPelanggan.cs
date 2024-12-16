@@ -145,7 +145,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private void btRiwayatPelanggan_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            V_RiwayatPemesanan halRiwayat = new V_RiwayatPemesanan();
+            halRiwayat.Show();
         }
 
         private void btLogoutPelanggan_Click(object sender, EventArgs e)

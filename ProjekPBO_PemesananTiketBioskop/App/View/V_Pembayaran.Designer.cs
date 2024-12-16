@@ -52,6 +52,10 @@
             // btMandiri
             // 
             btMandiri.BackColor = Color.Transparent;
+            btMandiri.FlatAppearance.BorderColor = Color.White;
+            btMandiri.FlatAppearance.BorderSize = 0;
+            btMandiri.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btMandiri.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btMandiri.FlatStyle = FlatStyle.Popup;
             btMandiri.Location = new Point(223, 362);
             btMandiri.Name = "btMandiri";
@@ -62,6 +66,9 @@
             // btBCA
             // 
             btBCA.BackColor = Color.Transparent;
+            btBCA.FlatAppearance.BorderColor = Color.White;
+            btBCA.FlatAppearance.BorderSize = 0;
+            btBCA.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btBCA.FlatStyle = FlatStyle.Popup;
             btBCA.Location = new Point(595, 362);
             btBCA.Name = "btBCA";
@@ -72,6 +79,9 @@
             // btBRI
             // 
             btBRI.BackColor = Color.Transparent;
+            btBRI.FlatAppearance.BorderColor = Color.White;
+            btBRI.FlatAppearance.BorderSize = 0;
+            btBRI.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btBRI.FlatStyle = FlatStyle.Popup;
             btBRI.Location = new Point(223, 522);
             btBRI.Name = "btBRI";
@@ -82,6 +92,9 @@
             // btJATIM
             // 
             btJATIM.BackColor = Color.Transparent;
+            btJATIM.FlatAppearance.BorderColor = Color.White;
+            btJATIM.FlatAppearance.BorderSize = 0;
+            btJATIM.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btJATIM.FlatStyle = FlatStyle.Popup;
             btJATIM.Location = new Point(595, 522);
             btJATIM.Name = "btJATIM";
@@ -92,6 +105,9 @@
             // btOVO
             // 
             btOVO.BackColor = Color.Transparent;
+            btOVO.FlatAppearance.BorderColor = Color.White;
+            btOVO.FlatAppearance.BorderSize = 0;
+            btOVO.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btOVO.FlatStyle = FlatStyle.Popup;
             btOVO.Location = new Point(223, 677);
             btOVO.Name = "btOVO";
@@ -102,6 +118,9 @@
             // btDANA
             // 
             btDANA.BackColor = Color.Transparent;
+            btDANA.FlatAppearance.BorderColor = Color.White;
+            btDANA.FlatAppearance.BorderSize = 0;
+            btDANA.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btDANA.FlatStyle = FlatStyle.Popup;
             btDANA.Location = new Point(595, 677);
             btDANA.Name = "btDANA";
@@ -231,6 +250,7 @@
             btBayarPembayaran.Size = new Size(295, 52);
             btBayarPembayaran.TabIndex = 16;
             btBayarPembayaran.UseVisualStyleBackColor = false;
+            btBayarPembayaran.Click += btBayarPembayaran_Click;
             // 
             // btKembaliPembayaran
             // 
@@ -245,6 +265,7 @@
             btKembaliPembayaran.Size = new Size(295, 52);
             btKembaliPembayaran.TabIndex = 17;
             btKembaliPembayaran.UseVisualStyleBackColor = false;
+            btKembaliPembayaran.Click += btKembaliPembayaran_Click;
             // 
             // V_Pembayaran
             // 

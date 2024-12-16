@@ -146,6 +146,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             M_DetailFilm dataDetail = new M_DetailFilm();
             int filmId = C_film.addDataFilm(dataFilm);
             dataDetail.film_id = filmId;
+ 
 
             if (cbTambahRuangan.SelectedItem != null)
             {

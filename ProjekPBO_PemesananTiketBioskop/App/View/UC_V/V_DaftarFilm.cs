@@ -26,6 +26,16 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             try
             {
 
+                if (!dgDaftarFilm.Columns.Contains("btnEdit"))
+                {
+                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                    btnEdit.Name = "btnEdit";
+                    btnEdit.HeaderText = "Edit";
+                    btnEdit.Text = "Edit";
+                    btnEdit.UseColumnTextForButtonValue = true; // Menampilkan teks tombol di kolom
+                    dgDaftarFilm.Columns.Add(btnEdit);
+                }
+
                 DataTable dataFilm = C_film.getdataFilm();
                 dgDaftarFilm.DataSource = dataFilm;
                 dgDaftarFilm.AllowUserToAddRows = false;
@@ -40,27 +50,21 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dgDaftarFilm.Columns["batas_umur"].HeaderText = "Batas Umur";
                 dgDaftarFilm.Columns["durasi"].HeaderText = "Durasi (menit)";
                 dgDaftarFilm.Columns["sinopsis"].HeaderText = "Sinopsis";
+                dgDaftarFilm.Columns["waktu_tayang"].HeaderText = "Waktu Tayang";
+                dgDaftarFilm.Columns["tanggal_tayang"].HeaderText = "Tanggal Tayang";
                 dgDaftarFilm.Columns["harga"].HeaderText = "Harga";
                 dgDaftarFilm.Columns["status"].HeaderText = "Status Film";
                 dgDaftarFilm.Columns["nama_ruangan"].HeaderText = "Nama Ruangan";
              
-                dgDaftarFilm.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold); 
-                dgDaftarFilm.ColumnHeadersHeight = 30; 
+                dgDaftarFilm.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); 
+                dgDaftarFilm.ColumnHeadersHeight = 50; 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan saat memuat data: " + ex.Message);
             }
 
-            if (!dgDaftarFilm.Columns.Contains("btnEdit"))
-            {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "btnEdit";
-                btnEdit.HeaderText = "Edit";
-                btnEdit.Text = "Edit";
-                btnEdit.UseColumnTextForButtonValue = true; // Menampilkan teks tombol di kolom
-                dgDaftarFilm.Columns.Add(btnEdit);
-            }
+            
         }
 
         private void btTambahFilm_Click(object sender, EventArgs e)

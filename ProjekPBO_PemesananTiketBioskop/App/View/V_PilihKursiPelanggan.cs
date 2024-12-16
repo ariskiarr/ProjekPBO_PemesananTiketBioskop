@@ -102,13 +102,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             {
                 string nomorKursi = lastSelectedButton.Text;
 
-                // Panggil fungsi untuk memesan kursi
-                C_KursiPelanggan.PesanKursi(detailfilmID, nomorKursi);
-
                 // Update tampilan tombol
                 lastSelectedButton.BackColor = Color.Red; // Tandai kursi yang sudah terpesan
                 lastSelectedButton.Enabled = false; // Nonaktifkan tombol kursi yang sudah terpesan
-
                 MessageBox.Show($"Kursi {nomorKursi} berhasil dipesan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -118,12 +114,21 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
         }
 
 
-
-
-
         private void btBayarKursi_Click(object sender, EventArgs e)
         {
-            //PesanKursi(); ini kalau sudah bayar aja yah hil ini aku cuman contoh kalau kursinya dah di pesan 
+            if (lastSelectedButton != null)
+            {
+                string nomorKursi = lastSelectedButton.Text; // Ambil nomor kursi yang dipilih
+                this.Hide();
+
+                // Buka form pembayaran dengan data kursi yang dipilih
+                V_Pembayaran HalPembayaran = new V_Pembayaran(detailfilmID, nomorKursi, filmId);
+                HalPembayaran.Show();
+            }
+            else
+            {
+                MessageBox.Show("Silakan pilih kursi terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btKembaliPilihKursi_Click(object sender, EventArgs e)

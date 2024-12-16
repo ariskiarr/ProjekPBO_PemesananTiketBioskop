@@ -34,27 +34,29 @@
             lbRuanganETiket = new Label();
             lbKursiETiket = new Label();
             lbWaktuTayang = new Label();
-            lbTotalHarga = new Label();
+            lbTotalPembayaran = new Label();
             tbJudulFilmETiket = new TextBox();
             tbRuanganETiket = new TextBox();
             tbKursiETiket = new TextBox();
-            tbTotalHarga = new TextBox();
+            tbTotalPembayaran = new TextBox();
             tbTanggalTayang = new TextBox();
             btKembaliEtiket = new Button();
+            lbwaktuPembayaran = new Label();
             lbTanggalPembayaran = new Label();
-            lbTanggalPemabyaran = new Label();
             lbMetodePembayaran = new Label();
             tbWaktuTayang = new TextBox();
             lbTanggalTayang = new Label();
             tbMetodePembayaran = new TextBox();
+            lbUsernameEtiket = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(262, 324);
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.Location = new Point(247, 296);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(465, 473);
+            pictureBox1.Size = new Size(515, 509);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -102,16 +104,16 @@
             lbWaktuTayang.TabIndex = 10;
             lbWaktuTayang.Text = "Waktu Tayang";
             // 
-            // lbTotalHarga
+            // lbTotalPembayaran
             // 
-            lbTotalHarga.AutoSize = true;
-            lbTotalHarga.BackColor = Color.Transparent;
-            lbTotalHarga.Font = new Font("Segoe UI", 16F);
-            lbTotalHarga.Location = new Point(1018, 846);
-            lbTotalHarga.Name = "lbTotalHarga";
-            lbTotalHarga.Size = new Size(182, 45);
-            lbTotalHarga.TabIndex = 11;
-            lbTotalHarga.Text = "Total Harga";
+            lbTotalPembayaran.AutoSize = true;
+            lbTotalPembayaran.BackColor = Color.Transparent;
+            lbTotalPembayaran.Font = new Font("Segoe UI", 16F);
+            lbTotalPembayaran.Location = new Point(1018, 846);
+            lbTotalPembayaran.Name = "lbTotalPembayaran";
+            lbTotalPembayaran.Size = new Size(270, 45);
+            lbTotalPembayaran.TabIndex = 11;
+            lbTotalPembayaran.Text = "Total Pembayaran";
             // 
             // tbJudulFilmETiket
             // 
@@ -146,16 +148,16 @@
             tbKursiETiket.Size = new Size(429, 32);
             tbKursiETiket.TabIndex = 14;
             // 
-            // tbTotalHarga
+            // tbTotalPembayaran
             // 
-            tbTotalHarga.BackColor = Color.White;
-            tbTotalHarga.BorderStyle = BorderStyle.None;
-            tbTotalHarga.Font = new Font("Segoe UI", 12F);
-            tbTotalHarga.Location = new Point(1331, 859);
-            tbTotalHarga.Name = "tbTotalHarga";
-            tbTotalHarga.ReadOnly = true;
-            tbTotalHarga.Size = new Size(429, 32);
-            tbTotalHarga.TabIndex = 15;
+            tbTotalPembayaran.BackColor = Color.White;
+            tbTotalPembayaran.BorderStyle = BorderStyle.None;
+            tbTotalPembayaran.Font = new Font("Segoe UI", 12F);
+            tbTotalPembayaran.Location = new Point(1331, 859);
+            tbTotalPembayaran.Name = "tbTotalPembayaran";
+            tbTotalPembayaran.ReadOnly = true;
+            tbTotalPembayaran.Size = new Size(429, 32);
+            tbTotalPembayaran.TabIndex = 15;
             // 
             // tbTanggalTayang
             // 
@@ -181,30 +183,31 @@
             btKembaliEtiket.Size = new Size(295, 52);
             btKembaliEtiket.TabIndex = 18;
             btKembaliEtiket.UseVisualStyleBackColor = false;
+            btKembaliEtiket.Click += btKembaliEtiket_Click;
+            // 
+            // lbwaktuPembayaran
+            // 
+            lbwaktuPembayaran.AutoSize = true;
+            lbwaktuPembayaran.BackColor = Color.Transparent;
+            lbwaktuPembayaran.Font = new Font("Segoe UI", 14F);
+            lbwaktuPembayaran.ForeColor = Color.Black;
+            lbwaktuPembayaran.Location = new Point(331, 854);
+            lbwaktuPembayaran.Name = "lbwaktuPembayaran";
+            lbwaktuPembayaran.Size = new Size(119, 38);
+            lbwaktuPembayaran.TabIndex = 19;
+            lbwaktuPembayaran.Text = "20:00:00";
             // 
             // lbTanggalPembayaran
             // 
             lbTanggalPembayaran.AutoSize = true;
             lbTanggalPembayaran.BackColor = Color.Transparent;
             lbTanggalPembayaran.Font = new Font("Segoe UI", 14F);
-            lbTanggalPembayaran.ForeColor = Color.Black;
-            lbTanggalPembayaran.Location = new Point(328, 854);
+            lbTanggalPembayaran.ForeColor = Color.Transparent;
+            lbTanggalPembayaran.Location = new Point(518, 854);
             lbTanggalPembayaran.Name = "lbTanggalPembayaran";
-            lbTanggalPembayaran.Size = new Size(119, 38);
-            lbTanggalPembayaran.TabIndex = 19;
-            lbTanggalPembayaran.Text = "20:00:00";
-            // 
-            // lbTanggalPemabyaran
-            // 
-            lbTanggalPemabyaran.AutoSize = true;
-            lbTanggalPemabyaran.BackColor = Color.Transparent;
-            lbTanggalPemabyaran.Font = new Font("Segoe UI", 14F);
-            lbTanggalPemabyaran.ForeColor = Color.Transparent;
-            lbTanggalPemabyaran.Location = new Point(520, 853);
-            lbTanggalPemabyaran.Name = "lbTanggalPemabyaran";
-            lbTanggalPemabyaran.Size = new Size(159, 38);
-            lbTanggalPemabyaran.TabIndex = 20;
-            lbTanggalPemabyaran.Text = "12-12-2024";
+            lbTanggalPembayaran.Size = new Size(159, 38);
+            lbTanggalPembayaran.TabIndex = 20;
+            lbTanggalPembayaran.Text = "12-12-2024";
             // 
             // lbMetodePembayaran
             // 
@@ -250,25 +253,37 @@
             tbMetodePembayaran.Size = new Size(429, 32);
             tbMetodePembayaran.TabIndex = 24;
             // 
+            // lbUsernameEtiket
+            // 
+            lbUsernameEtiket.AutoSize = true;
+            lbUsernameEtiket.BackColor = Color.White;
+            lbUsernameEtiket.Font = new Font("Segoe UI", 14F);
+            lbUsernameEtiket.Location = new Point(268, 260);
+            lbUsernameEtiket.Name = "lbUsernameEtiket";
+            lbUsernameEtiket.Size = new Size(139, 38);
+            lbUsernameEtiket.TabIndex = 25;
+            lbUsernameEtiket.Text = "username";
+            // 
             // V_E_TiketPelanggan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1898, 1064);
+            Controls.Add(lbUsernameEtiket);
             Controls.Add(tbMetodePembayaran);
             Controls.Add(lbTanggalTayang);
             Controls.Add(tbWaktuTayang);
             Controls.Add(lbMetodePembayaran);
-            Controls.Add(lbTanggalPemabyaran);
             Controls.Add(lbTanggalPembayaran);
+            Controls.Add(lbwaktuPembayaran);
             Controls.Add(btKembaliEtiket);
             Controls.Add(tbTanggalTayang);
-            Controls.Add(tbTotalHarga);
+            Controls.Add(tbTotalPembayaran);
             Controls.Add(tbKursiETiket);
             Controls.Add(tbRuanganETiket);
             Controls.Add(tbJudulFilmETiket);
-            Controls.Add(lbTotalHarga);
+            Controls.Add(lbTotalPembayaran);
             Controls.Add(lbWaktuTayang);
             Controls.Add(lbKursiETiket);
             Controls.Add(lbRuanganETiket);
@@ -289,18 +304,19 @@
         private Label lbRuanganETiket;
         private Label lbKursiETiket;
         private Label lbWaktuTayang;
-        private Label lbTotalHarga;
+        private Label lbTotalPembayaran;
         private TextBox tbJudulFilmETiket;
         private TextBox tbRuanganETiket;
         private TextBox tbKursiETiket;
-        private TextBox tbTotalHarga;
+        private TextBox tbTotalPembayaran;
         private TextBox tbTanggalTayang;
         private Button btKembaliEtiket;
+        private Label lbwaktuPembayaran;
         private Label lbTanggalPembayaran;
-        private Label lbTanggalPemabyaran;
         private Label lbMetodePembayaran;
         private TextBox tbWaktuTayang;
         private Label lbTanggalTayang;
         private TextBox tbMetodePembayaran;
+        private Label lbUsernameEtiket;
     }
 }

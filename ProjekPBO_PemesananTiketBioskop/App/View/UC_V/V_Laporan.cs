@@ -37,8 +37,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             dgLaporanTransaksi.Columns["jumlah_pembayaran"].HeaderText = "Jumlah Pembayaran";
 
 
-            dgLaporanTransaksi.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold); 
-            dgLaporanTransaksi.ColumnHeadersHeight = 30;
+            dgLaporanTransaksi.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); 
+            dgLaporanTransaksi.ColumnHeadersHeight = 50;
 
 
         }

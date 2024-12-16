@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_DaftarFilm));
             btTambahFilm = new Button();
             dgDaftarFilm = new DataGridView();
@@ -47,14 +51,47 @@
             // 
             // dgDaftarFilm
             // 
+            dgDaftarFilm.AllowUserToDeleteRows = false;
+            dgDaftarFilm.AllowUserToResizeColumns = false;
+            dgDaftarFilm.AllowUserToResizeRows = false;
+            dgDaftarFilm.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgDaftarFilm.BackgroundColor = SystemColors.Window;
             dgDaftarFilm.BorderStyle = BorderStyle.None;
             dgDaftarFilm.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgDaftarFilm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 16F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkMagenta;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgDaftarFilm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgDaftarFilm.ColumnHeadersHeight = 34;
+            dgDaftarFilm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkOrchid;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgDaftarFilm.DefaultCellStyle = dataGridViewCellStyle2;
             dgDaftarFilm.GridColor = SystemColors.WindowText;
             dgDaftarFilm.Location = new Point(97, 209);
             dgDaftarFilm.Name = "dgDaftarFilm";
-            dgDaftarFilm.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgDaftarFilm.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.DarkMagenta;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgDaftarFilm.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgDaftarFilm.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgDaftarFilm.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgDaftarFilm.Size = new Size(1441, 700);
             dgDaftarFilm.TabIndex = 1;
             dgDaftarFilm.CellContentClick += dgDaftarFilm_CellContentClick;
