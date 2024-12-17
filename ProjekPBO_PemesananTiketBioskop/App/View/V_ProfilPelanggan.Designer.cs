@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ProfilPelanggan));
             lbUsernamePengguna = new Label();
             lbEmailPengguna = new Label();
-            lbPasswordPengguna = new Label();
             lbNomorTeleponPengguna = new Label();
             btEditProdilPengguna = new Button();
             btKembaliProfilPengguna = new Button();
+            tbPasswordprofil = new TextBox();
             SuspendLayout();
             // 
             // lbUsernamePengguna
@@ -58,17 +58,6 @@
             lbEmailPengguna.Size = new Size(71, 32);
             lbEmailPengguna.TabIndex = 2;
             lbEmailPengguna.Text = "Email";
-            // 
-            // lbPasswordPengguna
-            // 
-            lbPasswordPengguna.AutoSize = true;
-            lbPasswordPengguna.BackColor = Color.White;
-            lbPasswordPengguna.Font = new Font("Segoe UI", 12F);
-            lbPasswordPengguna.Location = new Point(793, 646);
-            lbPasswordPengguna.Name = "lbPasswordPengguna";
-            lbPasswordPengguna.Size = new Size(111, 32);
-            lbPasswordPengguna.TabIndex = 3;
-            lbPasswordPengguna.Text = "Password";
             // 
             // lbNomorTeleponPengguna
             // 
@@ -103,16 +92,28 @@
             btKembaliProfilPengguna.UseVisualStyleBackColor = false;
             btKembaliProfilPengguna.Click += btKembaliProfilPengguna_Click;
             // 
+            // tbPasswordprofil
+            // 
+            tbPasswordprofil.BackColor = Color.White;
+            tbPasswordprofil.BorderStyle = BorderStyle.None;
+            tbPasswordprofil.Font = new Font("Segoe UI", 12F);
+            tbPasswordprofil.Location = new Point(793, 644);
+            tbPasswordprofil.Name = "tbPasswordprofil";
+            tbPasswordprofil.ReadOnly = true;
+            tbPasswordprofil.Size = new Size(418, 32);
+            tbPasswordprofil.TabIndex = 7;
+            tbPasswordprofil.UseSystemPasswordChar = true;
+            // 
             // V_ProfilPelanggan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1898, 1064);
+            Controls.Add(tbPasswordprofil);
             Controls.Add(btKembaliProfilPengguna);
             Controls.Add(btEditProdilPengguna);
             Controls.Add(lbNomorTeleponPengguna);
-            Controls.Add(lbPasswordPengguna);
             Controls.Add(lbEmailPengguna);
             Controls.Add(lbUsernamePengguna);
             Name = "V_ProfilPelanggan";
@@ -126,9 +127,9 @@
 
         private Label lbUsernamePengguna;
         private Label lbEmailPengguna;
-        private Label lbPasswordPengguna;
         private Label lbNomorTeleponPengguna;
         private Button btEditProdilPengguna;
         private Button btKembaliProfilPengguna;
+        private TextBox tbPasswordprofil;
     }
 }

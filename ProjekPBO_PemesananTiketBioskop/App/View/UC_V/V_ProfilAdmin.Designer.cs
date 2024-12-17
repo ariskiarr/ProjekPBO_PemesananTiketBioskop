@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(V_ProfilAdmin));
             lbUsernameAdmin = new Label();
             lbEmailAdmin = new Label();
-            lbPasswordAdmin = new Label();
             lbNomorTelp = new Label();
             btEditProfilAdmin = new Button();
+            tbpasswordprofiladmin = new TextBox();
             SuspendLayout();
             // 
             // lbUsernameAdmin
@@ -58,17 +58,6 @@
             lbEmailAdmin.TabIndex = 1;
             lbEmailAdmin.Text = "Email";
             // 
-            // lbPasswordAdmin
-            // 
-            lbPasswordAdmin.AutoSize = true;
-            lbPasswordAdmin.BackColor = Color.White;
-            lbPasswordAdmin.Font = new Font("Segoe UI", 12F);
-            lbPasswordAdmin.Location = new Point(682, 554);
-            lbPasswordAdmin.Name = "lbPasswordAdmin";
-            lbPasswordAdmin.Size = new Size(111, 32);
-            lbPasswordAdmin.TabIndex = 2;
-            lbPasswordAdmin.Text = "Password";
-            // 
             // lbNomorTelp
             // 
             lbNomorTelp.AutoSize = true;
@@ -91,17 +80,29 @@
             btEditProfilAdmin.UseVisualStyleBackColor = false;
             btEditProfilAdmin.Click += btEditProfilAdmin_Click;
             // 
-            // V_Profil
+            // tbpasswordprofiladmin
+            // 
+            tbpasswordprofiladmin.BackColor = Color.White;
+            tbpasswordprofiladmin.BorderStyle = BorderStyle.None;
+            tbpasswordprofiladmin.Font = new Font("Segoe UI", 12F);
+            tbpasswordprofiladmin.Location = new Point(682, 552);
+            tbpasswordprofiladmin.Name = "tbpasswordprofiladmin";
+            tbpasswordprofiladmin.ReadOnly = true;
+            tbpasswordprofiladmin.Size = new Size(417, 32);
+            tbpasswordprofiladmin.TabIndex = 5;
+            tbpasswordprofiladmin.UseSystemPasswordChar = true;
+            // 
+            // V_ProfilAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(tbpasswordprofiladmin);
             Controls.Add(btEditProfilAdmin);
             Controls.Add(lbNomorTelp);
-            Controls.Add(lbPasswordAdmin);
             Controls.Add(lbEmailAdmin);
             Controls.Add(lbUsernameAdmin);
-            Name = "V_Profil";
+            Name = "V_ProfilAdmin";
             Size = new Size(1618, 1079);
             ResumeLayout(false);
             PerformLayout();
@@ -111,8 +112,8 @@
 
         private Label lbUsernameAdmin;
         private Label lbEmailAdmin;
-        private Label lbPasswordAdmin;
         private Label lbNomorTelp;
         private Button btEditProfilAdmin;
+        private TextBox tbpasswordprofiladmin;
     }
 }

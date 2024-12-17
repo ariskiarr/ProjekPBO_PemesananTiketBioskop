@@ -34,7 +34,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
         {
             lbEmailPengguna.Text = data.email;
             lbNomorTeleponPengguna.Text = data.nomor_telepon;
-            lbPasswordPengguna.Text = data.password;
+            tbPasswordprofil.Text = data.password;
             lbUsernamePengguna.Text = data.username;
         }
 
