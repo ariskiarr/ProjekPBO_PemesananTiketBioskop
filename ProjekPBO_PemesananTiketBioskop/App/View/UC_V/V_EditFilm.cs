@@ -23,12 +23,11 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             InitializeComponent();
             this.filmId = filmId;
 
-            // Panggil metode untuk memuat data film berdasarkan ID
             LoadFilmById();
         }
         private void LoadFilmById()
         {
-            film = C_film.GetFilmById(filmId); // Memanggil metode yang mengembalikan objek M_Film, bukan DataTable
+            film = C_film.GetFilmById(filmId); 
 
             if (film != null)
             {
@@ -45,8 +44,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dtEditTanggalTayang.Value = film.tanggalTayang;
                 cbEditWaktuTayang.Text = film.waktuTayang.ToString(@"hh\:mm\:ss");
 
-
-                // Menangani gambar
                 if (film.gambar != null)
                 {
                     using (MemoryStream ms = new MemoryStream(film.gambar))
@@ -87,7 +84,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 // Setelah form sinopsis ditutup dengan hasil OK, perbarui sinopsis di film
                 film.sinopsis = formSinopsis.Sinopsis; // Dapatkan sinopsis yang telah diedit
                 MessageBox.Show("Sinopsis berhasil DiUbah!", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
         }
         public bool Validasiinput()
@@ -104,7 +100,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                string.IsNullOrWhiteSpace(cbEditStatus.Text) ||
                string.IsNullOrWhiteSpace(cbEditWaktuTayang.Text) ||
                string.IsNullOrWhiteSpace(dtEditTanggalTayang.Text))
-
             {
                 return false;
             }
@@ -123,20 +118,20 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             if (pbGambarEditFilm.Image == null)
             {
                 MessageBox.Show("Gambar belum dipilih! Silakan unggah gambar terlebih dahulu.", "peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;  // Menghentikan proses jika gambar belum dipilih
+                return;  
             }
 
             try
             {
-                int batasUmur = int.Parse(tbEditBatasUmur.Text); // mencoba mengonversi ke integer
+                int batasUmur = int.Parse(tbEditBatasUmur.Text); 
             }
-            catch (FormatException) //  jika input bukan angka
+            catch (FormatException) 
             {
                 MessageBox.Show("Batas Umur harus berupa angka!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validasi durasi (harus berupa angka)
+
             try
             {
                 int durasi = int.Parse(tbEditDurasi.Text);
@@ -147,7 +142,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 return;
             }
 
-            // Validasi harga (harus berupa angka)
+  
             try
             {
                 int harga = int.Parse(tbEditHarga.Text);
@@ -159,7 +154,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             }
 
             M_Film dataFilm = new M_Film();
-
 
             TimeSpan waktuTayang;
             if (!TimeSpan.TryParseExact(cbEditWaktuTayang.Text, "hh\\:mm\\:ss",
@@ -187,7 +181,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
             using (MemoryStream ms = new MemoryStream())
             {
                 pbGambarEditFilm.Image.Save(ms, pbGambarEditFilm.Image.RawFormat);
-                dataFilm.gambar = ms.ToArray(); // Konversi ke byte array
+                dataFilm.gambar = ms.ToArray(); 
             }
 
             C_film.UpdateFilm(dataFilm);
@@ -201,7 +195,7 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
              string selectedValue = cbEditRuangan.SelectedItem.ToString();
              int id_ruangan = 0;
 
-             // Menentukan ID ruangan berdasarkan pilihan ComboBox
+             
              if (selectedValue == "Ruangan A")
              {
                  id_ruangan = 1;

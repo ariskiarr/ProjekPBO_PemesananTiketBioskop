@@ -9,17 +9,17 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Model
 {
         public class M_Akun
         {
-            [Key]
+            
             public int akun_id { get; set; }
-            [Required]
+            
             public string role { get; set; }
-            [Required]
+            
             public string username { get; set; }
-            [Required]
+            
             public string nomor_telepon { get; set; }
-            [Required]
+            
             public string email { get; set; }
-            [Required]
+            
             public string password { get; set; }
         }
     }

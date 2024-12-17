@@ -13,7 +13,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
 
         private byte[] imageBytes;
         private string sinopsisFilm = "";
-        private M_Film dataFilm;
         public V_tambahFilm()
         {
             InitializeComponent();
@@ -52,8 +51,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             cbTambahRuangan.SelectedIndex = -1; // Reset ComboBox
             cbTambahStatus.SelectedIndex = -1;
             cbWaktuTayang.SelectedIndex = -1;
-            dtTambahTanggalTayang.Value = DateTime.Now; // Reset ke tanggal sekarang
-            pbGambarFilm.Image = null; // Hapus gambar di PictureBox
+            dtTambahTanggalTayang.Value = DateTime.Now; 
+            pbGambarFilm.Image = null; 
             sinopsisFilm = "";
 
         }
@@ -76,20 +75,20 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             if (pbGambarFilm.Image == null)
             {
                 MessageBox.Show("Gambar belum dipilih! Silakan unggah gambar terlebih dahulu.", "peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;  // Menghentikan proses jika gambar belum dipilih
+                return;  
             }
 
             try
             {
-                int batasUmur = int.Parse(tbTambahBatasUmur.Text); // mencoba mengonversi ke integer
+                int batasUmur = int.Parse(tbTambahBatasUmur.Text); 
             }
-            catch (FormatException) //  jika input bukan angka
+            catch (FormatException)
             {
                 MessageBox.Show("Batas Umur harus berupa angka!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validasi durasi (harus berupa angka)
+
             try
             {
                 int durasi = int.Parse(tbTambahDurasi.Text);
@@ -100,7 +99,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
                 return;
             }
 
-            // Validasi harga (harus berupa angka)
             try
             {
                 int harga = int.Parse(tbTambahHarga.Text);

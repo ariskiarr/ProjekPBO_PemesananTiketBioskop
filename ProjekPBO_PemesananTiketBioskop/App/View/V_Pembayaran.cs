@@ -43,7 +43,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View
             btOVO.Click += MetodePembayaran_Click;
             btDANA.Click += MetodePembayaran_Click;
             LoadFilmDetail();
-
         }
 
         private void MetodePembayaran_Click(object sender, EventArgs e)

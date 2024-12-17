@@ -40,7 +40,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dgDaftarFilm.DataSource = dataFilm;
                 dgDaftarFilm.AllowUserToAddRows = false;
                 dgDaftarFilm.RowHeadersVisible = false;
-
                 dgDaftarFilm.Columns["film_id"].HeaderText = "ID Film";
                 dgDaftarFilm.Columns["judul_film"].HeaderText = "Judul Film";
                 dgDaftarFilm.Columns["genre"].HeaderText = "Genre";
@@ -55,7 +54,6 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
                 dgDaftarFilm.Columns["harga"].HeaderText = "Harga";
                 dgDaftarFilm.Columns["status"].HeaderText = "Status Film";
                 dgDaftarFilm.Columns["nama_ruangan"].HeaderText = "Nama Ruangan";
-             
                 dgDaftarFilm.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); 
                 dgDaftarFilm.ColumnHeadersHeight = 50; 
             }
@@ -79,13 +77,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.View.UC_V
         {
             if (e.RowIndex >= 0 && dgDaftarFilm.Columns[e.ColumnIndex].Name == "btnEdit")
             {
-                // Ambil film_id dari DataGridView
                 int filmId = Convert.ToInt32(dgDaftarFilm.Rows[e.RowIndex].Cells["film_id"].Value);
-
-                //Buat instance v_editFilm dengan parameter filmId
                 V_EditFilm halEditFilm = new V_EditFilm(filmId);
-
-                // Panggil metode loadUserControl di v_halAdmin
                 V_HalAdmin.loadUserControl(halEditFilm);
             }
         }

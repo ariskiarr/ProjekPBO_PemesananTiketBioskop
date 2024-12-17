@@ -52,8 +52,8 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Context
                 // Menyiapkan parameter
                 var parameters = new NpgsqlParameter[]
                 {
-            new NpgsqlParameter("@transaksi_id", NpgsqlTypes.NpgsqlDbType.Integer) { Value = transaksi_id },
-            new NpgsqlParameter("@akun_id", NpgsqlTypes.NpgsqlDbType.Integer) { Value = akunId }
+                    new NpgsqlParameter("@transaksi_id", NpgsqlTypes.NpgsqlDbType.Integer) { Value = transaksi_id },
+                    new NpgsqlParameter("@akun_id", NpgsqlTypes.NpgsqlDbType.Integer) { Value = akunId }
                 };
 
                 // Menjalankan query dan mengembalikan data

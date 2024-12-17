@@ -9,9 +9,9 @@ namespace ProjekPBO_PemesananTiketBioskop.App.Model
 {
     public class M_DetailKursi
     {
-        [Key]
+        
         public int kursi_id { get; set; }
-        [Required]
+        
         public int detailfilm_id { get; set; }  
     }
 }
